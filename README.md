@@ -1,5 +1,8 @@
 # XMAI for Multimodal Robustness
 ### Repository for ACL'23 Paper: "Cross-Modal Attribute Insertions for Assessing the Robustness of Vision-and-Language Learning"
+
+Shivaen Ramshetty*, Gaurav Verma*, Srijan Kumar
+
 We provide an easy to follow repository with guided notebooks detailing our baselines, method, and evaluation.
 
 ## Datasets and Preprocessed Data
@@ -9,48 +12,7 @@ The dataset subsets can be downloaded here:
 
 To allow for rapid experimentation we provide pre-computed objects and attributes for each dataset:
 - MSCOCO Validation 2017: [repo](processed_data/coco_objs_attrs_captions.csv)
-- SNLI-VE Test: Large File (will be shared after anonymity period) ***Necessary for evaluation***
-
-## Recommended Organization
-```bash
-XMAI
-├───colab_notebooks
-│   ├───augmentation
-│   │       TextAttack_baselines.ipynb
-│   │       XMAI.ipynb
-│   │
-│   └───evaluation
-│           CLIP_MSCOCO.ipynb
-│           METER_SNLI_VE.ipynb
-│
-├───images
-│       coco_val2017.zip
-│
-├───modified_captions
-│   ├───MSCOCO
-│   │   ├───baselines
-│   │   │       coco_check_modified.csv
-│   │   │       coco_clare_modified.csv
-│   │   │       coco_del_modified.csv
-│   │   │       coco_eda_modified.csv
-│   │   │
-│   │   └───XMAI
-│   └───SNLI_VE
-│       ├───baselines
-│       │       check_modified_hypothesis.csv
-│       │       clare_modified_hypothesis.csv
-│       │       del_modified_hypothesis.csv
-│       │       eda_modified_hypothesis.csv
-│       │
-│       └───XMAI
-├───object_detection
-│       augment_caption.ipynb
-│
-└───processed_data
-        coco_objs_attrs_captions.csv
-        snli_ve_test_objects_attrs.csv
-```
-
+- SNLI-VE Test: [gdrive](https://drive.google.com/file/d/1iBdsHi3UKIwKMyxV23gvgRnPS33FPwoa/view?usp=sharing)
 
 ## Object and Attribute Detection
 To perform object and attribute detection yourself:
@@ -59,16 +21,19 @@ To perform object and attribute detection yourself:
 3. Run `augment_caption.ipynb` within repo
 
 ## Augmentation
+To augment and evaluate your own data, we provide scripts in [XMAI](XMAI/)
+
+Notebooks and data for our paper are found within [paper_experimens](paper_experiments/)
 ### Baselines
-- The baseline notebook can be found here: [`colab_notebooks/augmentation/TextAttack_baselines.ipynb`](colab_notebooks/augmentation/TextAttack_baselines.ipynb)
-- We provide our resulting files under: [`modified_captions/`](modified_captions/)
+- The baseline notebook can be found here: [`paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb`](paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb)
+- We provide our resulting files under: [`paper_experiments/modified_captions/`](paper_experiments/modified_captions/)
 
 ### XMAI Method
-- The XMAI notebook can be found here: [`colab_notebooks/augmentation/TextAttack_baselines.ipynb`](colab_notebooks/augmentation/TextAttack_baselines.ipynb)
-- We provide our main experiment results under:  [`modified_captions/`](modified_captions/)
+- The XMAI notebook can be found here: [`paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb`](paper_experiments/paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb)
+- We provide our main experiment results under:  [`paper_experiments/modified_captions/`](modified_captions/)
 
 ### Evaluation
-- We provide seperate evaluation scripts for MSCOCO and SNLI-VE datasets in [`colab_notebooks/evaluation/`](colab_notebooks/evaluation/)
+- We provide seperate evaluation scripts for MSCOCO and SNLI-VE datasets in [`paper_experiments/colab_notebooks/evaluation/`](paper_experiments/colab_notebooks/evaluation/)
 
 ## Acknowledgements
 We also thank the authors and contributors of the following repositories:
