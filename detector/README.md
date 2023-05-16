@@ -20,4 +20,4 @@ Initially, move the provided notebook `augment_caption.ipynb` into `bottom-up-at
 
 ### Future Plans
 
-- [] Attempt to build docker for newer GPUs and versions.
+- [ ] Attempt to build docker for newer GPUs and versions.
