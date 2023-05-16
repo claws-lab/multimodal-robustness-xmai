@@ -16,14 +16,15 @@ To allow for rapid experimentation we provide pre-computed objects and attribute
 
 ## Object and Attribute Detection
 To perform object and attribute detection yourself:
-1. Setup [Bottom-Up Attention Repo](https://github.com/MILVLG/bottom-up-attention.pytorch)
-2. Download pretrained model, we use a caffe version from the above repo (may need to modify model loading in notebook depending on which one is used)
-3. Run `augment_caption.ipynb` within repo
+1. Setup [Bottom-Up Attention Repo](https://github.com/MILVLG/bottom-up-attention.pytorch) or use our [docker](detector)
+2. Download pretrained model if setting up yourself.
+3. Follow instructions in `detector/README.md` to capture objects and attributes for the above data or your own.
 
 ## Augmentation
 To augment and evaluate your own data, we provide scripts in [XMAI](XMAI/)
 
-Notebooks and data for our paper are found within [paper_experimens](paper_experiments/)
+Notebooks and data for our paper are found within [paper_experiments](paper_experiments/)\
+
 ### Baselines
 - The baseline notebook can be found here: [`paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb`](paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb)
 - We provide our resulting files under: [`paper_experiments/modified_captions/`](paper_experiments/modified_captions/)
@@ -70,5 +71,13 @@ We also thank the authors and contributors of the following repositories:
   journal   = {CoRR},
   volume    = {abs/2202.03052},
   year      = {2022}
+}
+
+@misc{wu2019detectron2,
+  author =       {Yuxin Wu and Alexander Kirillov and Francisco Massa and
+                  Wan-Yen Lo and Ross Girshick},
+  title =        {Detectron2},
+  howpublished = {\url{https://github.com/facebookresearch/detectron2}},
+  year =         {2019}
 }
 ```
