@@ -1,0 +1,19 @@
+{
+    "name": "XMAI Objects and Attributes Detector",
+    "build": { "dockerfile": "../docker/Dockerfile" },
+    "runArgs": [
+        "-it",
+        "--gpus=all",
+        "-v", "${localWorkspaceFolder}/../../data/:/home/appuser/data" // modify this line
+    ],
+    "workspaceFolder": "/home/appuser",
+    "workspaceMount": "source=${localWorkspaceFolder}/notebooks,target=/home/appuser/notebooks,type=bind,consistency=cached",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+            "ms-python.python",
+            "ms-toolsai.jupyter"
+        ]
+      }
+    }
+  }

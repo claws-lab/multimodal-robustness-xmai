@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 python -m spacy download en_core_web_md 
 ```
-
+ proce
 Will neeed to modify requirements depending on your CUDA version or if you plan on only using CPU.
 
 ## Augmentation
