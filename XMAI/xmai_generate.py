@@ -344,7 +344,7 @@ def XMAI(
         except ValueError:
             score += 0
 
-        # Normalize scores
+        # Rescale scores
         score = score / max((abs(args.lambda_a) + abs(args.lambda_b) + abs(args.lambda_c)), 1)
 
         # Pick max scoring word
