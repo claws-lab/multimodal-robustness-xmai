@@ -4,6 +4,9 @@ from flair.data import Sentence
 
 
 def pos_objects(sent, tagger):
+    """
+    Find objects in text by locating nouns or noun phrases.
+    """
     sentence = Sentence(sent)
     tagger.predict(sentence)
     objects = []
@@ -17,6 +20,10 @@ def pos_objects(sent, tagger):
 
 
 def tokens_to_text(tokens, special=True):
+    """
+    Convert list of tokens to a single string, accounting for special tokens
+    if 'special' is True.
+    """
     sentence = ""
     start = 1
     end = -1
@@ -42,6 +49,11 @@ def tokens_to_text(tokens, special=True):
 
 
 def combine_token_pieces(tokens):
+    """
+    Combine tokens that are broken by tokenization.
+    Useful when fetching attributes for objects, since objects may be broken
+    by tokenization in text but not in the provided inputs.
+    """
     new_tokens = []
     i = 0
     parts = 0
@@ -61,6 +73,9 @@ def combine_token_pieces(tokens):
 
 
 def get_sw_tokens(tokenizer):
+    """
+    Tokenize stopwords with same model as that performing the mask prediction.
+    """
     sw_nltk = stopwords.words('english')
     sw_nltk = sw_nltk + [pun for pun in string.punctuation]
     sw_tokens = tokenizer.tokenize(" ".join(sw_nltk))

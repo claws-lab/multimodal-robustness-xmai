@@ -112,6 +112,18 @@ def parse_args():
 
 
 def transform_similar_objects(sen_model, tagger, orig_text, img_objects, threshold=0.7):
+    """
+    Add [MASK] tokens in front of objects, where objects in text are above some
+    similarity threshold to those detected.
+
+    Args:
+        sen_model: Sentence transformer model
+        tagger: POS tagging model
+        orig_text: Text to augment
+        img_objects: List of objects detected in the corresponding image
+        threshold: Similarity threshold determining whether object in text is semantic
+            close enough to an object in 'img_objects'
+    """
     objs, obj_positions = pos_objects(orig_text, tagger) # Find all noun-type objects
     cap_objs = sen_model.encode(objs)
     img_objs = sen_model.encode(list(img_objects))
@@ -137,7 +149,12 @@ def transform_similar_objects(sen_model, tagger, orig_text, img_objects, thresho
 
 def mask_text(text, objects):
     """
-        Insert masks in front of exactly matches objects in given text
+    Insert [MASK] tokens in front of exactly matched objects in the given text.
+    If no exact match exists, text will not be modified.
+
+    Args:
+        text: Text to augment
+        objects: List of objects detected in the corresponding image 
     """
     # Store every matched object and the indices the matches occur in the original text
     unique = {}
@@ -162,6 +179,19 @@ def mask_text(text, objects):
 
 # referenced https://gist.github.com/yuchenlin/a2f42d3c4378ed7b83de65c7a2222eb2
 def mask_predictions(model, tokenizer, orig_tokens, m_idx, k):
+    """
+    Use LM to predict the top-k words for a given [MASK]. Return the k tokens
+    and their probabilities.
+    
+    Args:
+        model: LM for mask prediction.
+        tokenizer: Tokenizer for given model.
+        orig_tokens: List of tokens from text to augment
+        m_idx: Mask index within 'orig_tokens'
+        k: Number of tokens to return; top-k predicted tokens that are not
+            stopwords, the same as the object, the same as preceeding 3 tokens,
+            or [UNK] token.
+    """
     pred_tokens = []
     token_probs = np.zeros((k, 1))
     
@@ -196,6 +226,13 @@ def mask_predictions(model, tokenizer, orig_tokens, m_idx, k):
 
 
 def token_similarity(preds, attrs):
+    """
+    Compute similarity matrix for predicted tokens and image attributes.
+
+    Args:
+        preds: List of predicted tokens
+        attrs: List of attributes from image
+    """
     if len(attrs) == 0:
         return np.zeros((len(preds), 1))
 
@@ -210,6 +247,15 @@ def token_similarity(preds, attrs):
 
 
 def clip_dissimilarity(clip_model, preprocess, texts, image_path):
+    """
+    Compute dissimilarity between cadidate texts and a given image.
+
+    Args:
+        clip_model: CLIP model
+        preprocess: Preprocessing transforms
+        texts: Candidate texts
+        image_path: Path to or bytes of image
+    """
     sims = np.array((len(texts), 1))
 
     try:
@@ -251,6 +297,25 @@ def XMAI(
     image_file
 ):
     """
+    Perform XMAI augmentation over given text with given objects and attributes. For each mask, begin by 
+    performing masking of the n  text based on a selected object masking method. Then predicts most likely
+    tokens for that mask using provided LM. Then, compares predicted tokens to 'attributes' and creates candidate
+    texts for each token. These candidates are used for CLIP dissimilarity computation. Finally, scores for a given
+    mask are aggregated and the max scoring token is chosen for the mask. This is repeated for all existing masks,
+    returning an augmented text.
+
+    Args:
+        args: Arguments for XMAI configuration. Take a look at parse_args() for more details.
+        model: LM for [MASK] token prediction.
+        tokenizer: Tokenizer for LM.
+        clip_model: CLIP model
+        preprocess: Preprocessing transforms
+        sent_model: Sentence transformer
+        tagger: POS tagging model
+        orig_text: Text to augment
+        objects: List of objects detected in image
+        attributes: List of attributes detected in image
+        image_file: Path to or bytes if image
     """
 
     # Add buffer
@@ -365,6 +430,9 @@ def XMAI(
 
 
 def set_globals(tokenizer):
+    """
+    Initialize globals for processing functions and XMAI.
+    """
     global device
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -419,6 +487,8 @@ def main(args):
             )
         )
 
+    # Save augmented text in new column.
+    # Note this will replace 'augmented' column if it already exists
     data_df['augmented'] = augmented_text
 
     if not os.path.exists(args.output_csv):

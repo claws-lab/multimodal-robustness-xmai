@@ -55,7 +55,26 @@ def parse_args():
     return args
 
 
+def MRR(similarities):
+    """
+    Compute MRR for a similarity matrix.
+    """
+    mrr = 0
+    for cap in range(len(similarities)):
+        # Since 1-1 image-text pair, retrieve similarity value of the actual pair
+        correct_sim = similarities[cap][cap]
+        # Get indices in descending order     
+        sort_image_sim = np.sort(similarities[cap])[::-1]
+        # Use highest position of actual pair's similarity as its rank
+        mrr += 1/(np.where(sort_image_sim == correct_sim)[0][0] + 1)
+
+    return mrr/len(similarities)
+
+
 def avg_bleu(og_caps, mod_caps):
+    """
+    Compute mean BLEU score between original and augmented texts.
+    """
     smoother = SmoothingFunction()
 
     scores = []
@@ -68,6 +87,9 @@ def avg_bleu(og_caps, mod_caps):
 
 
 def avg_meteor(og_hyps, mod_hyps):
+    """
+    Compute mean METEOR score between original and augmented texts.
+    """
     scores = []
     for og, mod in zip(og_hyps, mod_hyps):
         og = word_tokenize(og)
@@ -79,6 +101,9 @@ def avg_meteor(og_hyps, mod_hyps):
 
 # Compute mean sentence similarity over all caption pairs
 def mean_relevancy(sent_model, original, augmented, batch_size=256):
+    """
+    Compute mean text similarities between original and augmented texts.
+    """
     rels = []
     for i in range(0, len(original), batch_size):
         with torch.no_grad():
@@ -92,6 +117,9 @@ def mean_relevancy(sent_model, original, augmented, batch_size=256):
 
 
 def build_features(clip_model, imgs, og_caps, mod_caps):
+    """
+    Compute image, original text, and augmented text embeddings with CLIP model.
+    """
     image_input = torch.tensor(np.stack(imgs)).cuda()
     orig_text_tokens = clip.tokenize(["This is " + desc for desc in og_caps], truncate=True).cuda()
     mod_text_tokens = clip.tokenize(["This is " + desc for desc in mod_caps], truncate=True).cuda()
@@ -109,6 +137,10 @@ def build_features(clip_model, imgs, og_caps, mod_caps):
 
 
 def batch_experiment(clip_model, preprocess, og_texts, aug_texts, files, im_dir, batch_size=1000):
+    """
+    Compute similarity between image-text pairs for both original and augmented texts. This function
+    can be used to produce MRRs for batches as well.
+    """
     img_og_rel = []
     img_mod_rel = []
     for i in tqdm(range(0, len(og_texts), batch_size)):
