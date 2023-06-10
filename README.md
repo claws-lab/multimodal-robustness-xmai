@@ -39,14 +39,16 @@ Notebooks and data for our paper are found within [paper_experiments](paper_expe
 ## Acknowledgements
 We also thank the authors and contributors of the following repositories:
 
-```
+```bibtex
 @misc{yu2020buapt,
   author = {Yu, Zhou and Li, Jing and Luo, Tongan and Yu, Jun},
   title = {A PyTorch Implementation of Bottom-Up-Attention},
   howpublished = {\url{https://github.com/MILVLG/bottom-up-attention.pytorch}},
   year = {2020}
 }
+```
 
+```bibtex
 @inproceedings{dou2022meter,
   title={An Empirical Study of Training End-to-End Vision-and-Language Transformers},
   author={Dou, Zi-Yi and Xu, Yichong and Gan, Zhe and Wang, Jianfeng and Wang, Shuohang and Wang, Lijuan and Zhu, Chenguang and Zhang, Pengchuan and Yuan, Lu and Peng, Nanyun and Liu, Zicheng and Zeng, Michael},
@@ -54,7 +56,9 @@ We also thank the authors and contributors of the following repositories:
   year={2022},
   url={https://arxiv.org/abs/2111.02387},
 }
+```
 
+```bibtex
 @article{wang2022ofa,
   author    = {Peng Wang and
                An Yang and
@@ -72,7 +76,9 @@ We also thank the authors and contributors of the following repositories:
   volume    = {abs/2202.03052},
   year      = {2022}
 }
+```
 
+```bibtex
 @misc{wu2019detectron2,
   author =       {Yuxin Wu and Alexander Kirillov and Francisco Massa and
                   Wan-Yen Lo and Ross Girshick},
