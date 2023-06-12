@@ -1,7 +1,13 @@
 # XMAI for Multimodal Robustness
 ### Repository for ACL'23 Paper: "Cross-Modal Attribute Insertions for Assessing the Robustness of Vision-and-Language Learning"
 
-Shivaen Ramshetty*, Gaurav Verma*, Srijan Kumar
+**Authors**: [Shivaen Ramshetty]()\*, [Gaurav Verma](https://gaurav22verma.github.io/)\*, and [Srijan Kumar](https://faculty.cc.gatech.edu/~srijan/)  
+**Affiliation**: Georgia Institute of Technology  
+
+**Paper (pdf)**: [arXiv]()  
+**Poster (pdf)**: [coming soon]()  
+
+
 
 We provide an easy to follow repository with guided notebooks detailing our baselines, method, and evaluation.
 
@@ -35,6 +41,17 @@ Notebooks and data for our paper are found within [paper_experiments](paper_expe
 
 ### Evaluation
 - We provide seperate evaluation scripts for MSCOCO and SNLI-VE datasets in [`paper_experiments/colab_notebooks/evaluation/`](paper_experiments/colab_notebooks/evaluation/)
+
+
+## Citation
+```bibtex
+@inproceedings{ramshetty2023xmai,
+    title={Cross-Modal Attribute Insertions for Assessing the Robustness of Vision-and-Language Learning},
+    author={Ramshetty, Shivaen and Verma, Gaurav and Kumar, Srijan},
+    booktitle={Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL)},
+    year={2023}
+}
+```
 
 ## Acknowledgements
 We also thank the authors and contributors of the following repositories:
