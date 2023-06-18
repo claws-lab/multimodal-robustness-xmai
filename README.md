@@ -1,7 +1,7 @@
 # XMAI for Multimodal Robustness
 ### Repository for ACL'23 Paper: "Cross-Modal Attribute Insertions for Assessing the Robustness of Vision-and-Language Learning"
 
-**Authors**: [Shivaen Ramshetty]()\*, [Gaurav Verma](https://gaurav22verma.github.io/)\*, and [Srijan Kumar](https://faculty.cc.gatech.edu/~srijan/)  
+**Authors**: [Shivaen Ramshetty](https://shivaen.org/)\*, [Gaurav Verma](https://gaurav22verma.github.io/)\*, and [Srijan Kumar](https://faculty.cc.gatech.edu/~srijan/)  
 **Affiliation**: Georgia Institute of Technology  
 
 **Paper (pdf)**: [arXiv]()  
@@ -29,7 +29,7 @@ To perform object and attribute detection yourself:
 ## Augmentation
 To augment and evaluate your own data, we provide scripts in [XMAI](XMAI/)
 
-Notebooks and data for our paper are found within [paper_experiments](paper_experiments/)\
+Notebooks and data for our paper are found within [paper_experiments](paper_experiments/)
 
 ### Baselines
 - The baseline notebook can be found here: [`paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb`](paper_experiments/colab_notebooks/augmentation/TextAttack_baselines.ipynb)
