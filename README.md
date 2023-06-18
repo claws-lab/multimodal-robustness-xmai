@@ -7,7 +7,14 @@
 **Paper (pdf)**: [arXiv]()  
 **Poster (pdf)**: [coming soon]()  
 
+# Overview Figure
 
+<center><img src="https://github.com/claws-lab/multimodal-robustness-xmai/blob/main/assets/overview.png" width="40%;"></center>
+    
+# Qualitative Examples
+<img src="https://github.com/claws-lab/multimodal-robustness-xmai/blob/main/assets/qualitative_examples.png" width="80%;"></center>
+
+# Code, Data, and Resources
 
 We provide an easy to follow repository with guided notebooks detailing our baselines, method, and evaluation.
 
@@ -43,7 +50,7 @@ Notebooks and data for our paper are found within [paper_experiments](paper_expe
 - We provide seperate evaluation scripts for MSCOCO and SNLI-VE datasets in [`paper_experiments/colab_notebooks/evaluation/`](paper_experiments/colab_notebooks/evaluation/)
 
 
-## Citation
+# Citation
 ```bibtex
 @inproceedings{ramshetty2023xmai,
     title={Cross-Modal Attribute Insertions for Assessing the Robustness of Vision-and-Language Learning},
@@ -53,7 +60,7 @@ Notebooks and data for our paper are found within [paper_experiments](paper_expe
 }
 ```
 
-## Acknowledgements
+# Acknowledgements
 We also thank the authors and contributors of the following repositories:
 
 ```bibtex
