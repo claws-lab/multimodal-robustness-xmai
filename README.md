@@ -9,10 +9,14 @@
 
 # Overview Figure
 
-<center><img src="https://github.com/claws-lab/multimodal-robustness-xmai/blob/main/assets/overview.png" width="40%;"></center>
+<p align="center">
+    <img src="https://github.com/claws-lab/multimodal-robustness-xmai/blob/main/assets/overview.png" width="40%;">
+</p>
     
 # Qualitative Examples
-<img src="https://github.com/claws-lab/multimodal-robustness-xmai/blob/main/assets/qualitative_examples.png" width="80%;"></center>
+<p align="center">
+    <img src="https://github.com/claws-lab/multimodal-robustness-xmai/blob/main/assets/qualitative_examples.png" width="80%;">
+</p>
 
 # Code, Data, and Resources
 
