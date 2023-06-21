@@ -4,7 +4,7 @@
 **Authors**: [Shivaen Ramshetty](https://shivaen.org/)\*, [Gaurav Verma](https://gaurav22verma.github.io/)\*, and [Srijan Kumar](https://faculty.cc.gatech.edu/~srijan/)  
 **Affiliation**: Georgia Institute of Technology  
 
-**Paper (pdf)**: [arXiv]()  
+**Paper (pdf)**: [arXiv](https://arxiv.org/abs/2306.11065)  
 **Poster (pdf)**: [coming soon]()  
 
 # Overview Figure
