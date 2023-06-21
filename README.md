@@ -51,7 +51,7 @@ Notebooks and data for our paper are found within [paper_experiments](paper_expe
 - We provide our main experiment results under:  [`paper_experiments/modified_captions/`](modified_captions/)
 
 ### Evaluation
-- We provide seperate evaluation scripts for MSCOCO and SNLI-VE datasets in [`paper_experiments/colab_notebooks/evaluation/`](paper_experiments/colab_notebooks/evaluation/)
+- We provide separate evaluation scripts for MSCOCO and SNLI-VE datasets in [`paper_experiments/colab_notebooks/evaluation/`](paper_experiments/colab_notebooks/evaluation/)
 
 
 # Citation
