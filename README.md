@@ -4,8 +4,8 @@
 **Authors**: [Shivaen Ramshetty](https://shivaen.org/)\*, [Gaurav Verma](https://gaurav22verma.github.io/)\*, and [Srijan Kumar](https://faculty.cc.gatech.edu/~srijan/)  
 **Affiliation**: Georgia Institute of Technology  
 
-**Paper (pdf)**: [arXiv](https://arxiv.org/abs/2306.11065)  
-**Poster (pdf)**: [coming soon]()  
+**Paper (pdf)**: [arXiv](https://arxiv.org/abs/2306.11065), [ACL Anthology](https://aclanthology.org/2023.acl-long.890/)  
+**Poster (pdf)**: [ACL Underline](https://assets.underline.io/lecture/76681/poster_document/1e87aa78b0da870fb88a2617de1a2aa9.pdf)  
 
 # Overview Figure
 
